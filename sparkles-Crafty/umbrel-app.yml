@@ -1,7 +1,7 @@
-manifestVersion: 1
+manifestVersion: 2
 id: sparkles-crafty
 name: Crafty
-tagline: Replace this tagline with your app's tagline
+tagline:
 icon: https://docs.craftycontrol.com/img/favicon.ico
 category: Development
 version: "3.0.0"
