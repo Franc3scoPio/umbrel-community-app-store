@@ -1,9 +1,0 @@
-manifestVersion: 2
-id: Crafty-Crafty
-name: Crafty
-tagline:
-icon: https://docs.craftycontrol.com/img/favicon.ico
-category: Development
-version: "3.0.0"
-port: 4000
-description: >-
