@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: crafty-crafty
 name: Crafty
-tagline: Replace this tagline with your app's tagline
+tagline: An unofficial Crafty Controller port on umbrelOS (WIP).
 icon: https://docs.craftycontrol.com/img/favicon.ico
 category: Development
 version: "3.0.0"
