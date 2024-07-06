@@ -1,9 +1,10 @@
+---
 version: '3'
 
 services:
   crafty:
     container_name: crafty_container
-    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    build: ..
     restart: always
     environment:
       - TZ=Etc/UTC
@@ -14,8 +15,8 @@ services:
       - "19132:19132/udp" # BEDROCK
       - "25500-25600:25500-25600" # MC SERV PORT RANGE
     volumes:
-      - ./docker/backups:/crafty/backups
-      - ./docker/logs:/crafty/logs
-      - ./docker/servers:/crafty/servers
-      - ./docker/config:/crafty/app/config
-      - ./docker/import:/crafty/import
+      - ./backups:/crafty/backups
+      - ./logs:/crafty/logs
+      - ./servers:/crafty/servers
+      - ./config:/crafty/app/config
+      - ./import:/crafty/import
