@@ -1,3 +1,5 @@
+# Make your compose file
+$ vim docker-compose.yml
 version: '3'
 
 services:
@@ -19,3 +21,5 @@ services:
       - ./docker/servers:/crafty/servers
       - ./docker/config:/crafty/app/config
       - ./docker/import:/crafty/import
+      
+$ docker-compose up -d && docker-compose logs -f
