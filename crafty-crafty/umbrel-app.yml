@@ -5,5 +5,5 @@ tagline: An unofficial Crafty-Controller-4.0 port on umbrelOS (WIP).
 icon: https://docs.craftycontrol.com/img/favicon.ico
 category: Development
 version: "3.0.0"
-port: 4000
+port: 8443
 description: >-
