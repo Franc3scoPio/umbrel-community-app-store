@@ -1,0 +1,26 @@
+# docker related
+docker/
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.yml.example
+
+# git & gitlab related
+.git/
+.github/
+.gitlab/
+.gitignore
+.gitlab-ci.yml
+lang_sort_log.txt
+
+# root
+.editorconfig
+.pylintrc
+.venv
+.vscode
+crafty_commander.exe
+CHANGELOG.md
+CONTRIBUTING.md
+DBCHANGES.md
+README.md
+sonar-project.properties

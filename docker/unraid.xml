@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Beta>False</Beta>
+  <Name>Crafty-4</Name>
+  <Repository>arcadiatechnology/crafty-4</Repository>
+  <Registry>https://hub.docker.com/r/arcadiatechnology/crafty-4</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://discord.gg/9VJPhCE</Support>
+  <Project>https://craftycontrol.com/</Project>
+  <License>GNU GPL V3</License>
+  <Branch>
+    <Tag>latest</Tag>
+    <TagDescription>Latest version of Crafty, which should be used for production purposes as it is the most stable</TagDescription>
+</Branch>
+<Branch>
+    <Tag>dev</Tag>
+    <TagDescription>Development version of Crafty, only generally used for testing purposes, because of its less stable nature</TagDescription>
+</Branch>
+<Screenshot>https://wiki.craftycontrol.com/uploads/en/crafty%204%20dashboard%20with%20one%20server.jpeg</Screenshot>
+<Screenshot>https://wiki.craftycontrol.com/uploads/en/crafty%204%20server%20setup%20details.png</Screenshot>
+  <Overview>Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher. [br]Boasting a clean new look, rebuilt from the ground up. [br] [br] Crafty 4 brings a whole host of new features such as Bedrock support. [br] With SteamCMD support on the way![br] **Default login Credentrails are stored in your Crafty Configuration location in the file default-creds.txt **  [br]Crafty 4 is the successor of Crafty Controller. [br]For official support join the Discord server https://discord.gg/9VJPhCE [br] For migration from 3.x please refer to the documentation: https://wiki.craftycontrol.com/en/4/
+</Overview>
+  <Category>GameServers: Other:</Category>
+  <WebUI>https://[IP]:[PORT:8443]/</WebUI>
+  <TemplateURL>https://gitlab.com/crafty-controller/crafty-4/-/raw/master/docker/unraid.xml</TemplateURL>
+  <Icon>https://gitlab.com/crafty-controller/crafty-4/-/raw/master/app/frontend/static/assets/images/Crafty_4-0_Logo_square.ico</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText>Help to support Crafty on Kofi</DonateText>
+  <DonateLink>https://ko-fi.com/arcadiatech</DonateLink>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8443</HostPort>
+        <ContainerPort>8443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>25500-25600</HostPort>
+        <ContainerPort>25500-25600</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8123</HostPort>
+        <ContainerPort>8123</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>19132</HostPort>
+        <ContainerPort>19132</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/crafty-4/servers/</HostDir>
+      <ContainerDir>/crafty/servers</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/crafty-4/backups/</HostDir>
+      <ContainerDir>/crafty/backups</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/crafty-4/logs/</HostDir>
+      <ContainerDir>/crafty/logs</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/crafty-4/config/</HostDir>
+      <ContainerDir>/crafty/app/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/crafty-4/import/</HostDir>
+      <ContainerDir>/crafty/import</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Web UI Port" Target="8443" Default="8443" Mode="tcp" Description="Web UI [HTTPS]" Type="Port" Display="always-hide" Required="true" Mask="false">8443</Config>
+  <Config Name="Minecraft ports" Target="25500-25600" Default="25500-25600" Mode="tcp" Description="Container Port: 25500-25600 yes, 100 ports for 100 possible Servers" Type="Port" Display="always-hide" Required="true" Mask="false">25500-25600</Config>
+  <Config Name="Port for dynmap" Target="8123" Default="8123" Mode="tcp" Description="Dynmap Port" Type="Port" Display="always-hide" Required="true" Mask="false">8123</Config>
+  <Config Name="Port for bedrock server" Target="19132" Default="19132" Mode="udp" Description="Bedrock server port" Type="Port" Display="always-hide" Required="true" Mask="false">19132</Config>
+  <Config Name="Server files" Target="/crafty/servers" Default="/mnt/user/appdata/crafty-4/servers/" Mode="rw" Description="Path to the minecraft server folders" Type="Path" Display="always-hide" Required="true" Mask="false">/mnt/user/appdata/crafty-4/servers/</Config>
+  <Config Name="Backup files" Target="/crafty/backups" Default="/mnt/user/appdata/crafty-4/backups/" Mode="rw" Description="Server Backups" Type="Path" Display="always-hide" Required="true" Mask="false">/mnt/user/appdata/crafty-4/backups/</Config>
+  <Config Name="Server Logs" Target="/crafty/logs" Default="/mnt/user/appdata/crafty-4/logs/" Mode="rw" Description="Logs" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/crafty-4/logs/</Config>
+  <Config Name="Crafty Configuration" Target="/crafty/app/config" Default="/mnt/user/appdata/crafty-4/config/" Mode="rw" Description="Path to the persistent Crafty files" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/crafty-4/config/</Config>
+  <Config Name="Import folder" Target="/crafty/import" Default="/mnt/user/appdata/crafty-4/import/" Mode="rw" Description="Import existing Mincecraft Servers" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/crafty-4/import/</Config>
+</Container>

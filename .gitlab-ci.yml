@@ -1,0 +1,34 @@
+# Crafty Controller 4.0 - Lint & Build Pipes
+# [Maintainer: Zedifus(https://gitlab.com/Zedifus)]
+###################################################
+---
+stages:
+  - lint
+  - test
+  - prod-deployment
+  - dev-deployment
+  - release
+
+variables:
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+
+include:
+  - local: .gitlab/lint.yml
+  - local: .gitlab/docker-build.yml
+  - local: .gitlab/windows-build.yml
+  - local: .gitlab/release.yml
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+sast:
+  variables:
+    SAST_EXCLUDED_PATHS: spec, test, tests, tmp, migrations, vendors
+    SAST_BANDIT_EXCLUDED_PATHS: "'*/migrations/*, */vendors/*'"
+    SAST_EXCLUDED_ANALYZERS: semgrep
+  stage: test
+
+secret_detection:
+  variables:
+    SECRET_DETECTION_EXCLUDED_PATHS: migrations, vendors
